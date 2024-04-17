@@ -1,36 +1,12 @@
-#IK1203 Nätverk och kommunikation 7,5 hp
-Kursen är en introduktion till nätverk, protokoll och kommunikation.
+**TASK1: TCPAsk**
+Task 1 focuses on developing a TCP client in Java named TCPClient. This client class facilitates communication with a server by establishing a TCP connection, sending data to the server, and receiving its response. The goal is to learn the fundamentals of TCP sockets, implement the client side of client-server communication, and handle any errors that may occur during this process. By using methods like `askServer`, the client can interact with the server in a straightforward and structured manner. A dynamic buffer for receiving data ensures efficient handling of the server's response, while various testing scenarios, such as Daytime and Whois, enable practical validation of the implementation. Finally, a correctly formatted zip file for submission ensures the solution can be evaluated properly.
 
-Vi studerar hur stora världstäckande nät kan byggas upp från de enskilda kommunicerande datorerna, via lokala, stads- och landstäckande nät. Vi använder och arbetar i kursen huvudsakligen med Internet som exempel. Målet med kursen är att både ge en insikt i principer och metoder, så väl som mer praktiska sidor.
+**TASK2: TCPAsk Connections**
+Task 2 extends the TCPClient class introduced in Task 1 to handle different server connection scenarios. It adds options for timeouts, data limits, and controlling connection shutdown. TCPAsk is also updated to support these new parameters. Testing involves interacting with various servers to verify implementation under different conditions. Submission follows the same format as Task 1. Evaluation checks the submission format and functionality through tests.
 
-Tyngdpunkten i kursen ligger på de ingående protokollen och algortimerna, och vi kommer följa hur dessa används och implementeras i TCP/IP-stacken, som är den bas på vilken Internet är byggd.
+**TASK3: HTTPAsk Server**
+Task 3 introduces HTTPAsk, a web server utilizing TCPClient from previous tasks. It receives HTTP requests with TCPClient parameters encoded in the query string, invokes TCPClient.askServer(), and returns the output as an HTTP response. Your task is to implement the HTTPAsk class with a main method serving as the server. It listens on a specified port, parses incoming HTTP GET requests, extracts TCPClient parameters, and generates valid HTTP responses. Submission follows the same format as previous tasks, and evaluation includes verifying the submission format and conducting tests to check functionality.
 
-Innehåll och lärandemål
-Kursinnehåll
-Internets uppbyggnad och olika beståndsdelar.
-Skiktade nätverksmodeller: översikt av Internetmodellen.
-Kommunikationsmodeller: klient/server och "peer-to-peer".
-Internet-baserade tillämpningar och deras protokoll: DNS, SMTP, HTTP mm.
-Design och implementering av tillämpningar enligt klient/server-modellen. Socketprogrammering.
-Principer för transportprotokoll och de tjänster de erbjuder. Internetbaserade transportprotokoll: TCP och UDP.
-Flödesreglering, trängselhantering och och felhantering. Stop-and-wait, Go-Back-N samt fönsterhantering och stockningskontroll i TCP.
-Sammankopplade nät: Internetprotokollet (IP), datagram-tjänster, paketväxling, vägvalsprotokoll och vägvalsalgoritmer.
-Lokala nätverk: topologier, åtkomstkontroll, Ethernet, trådlösa lokala nät, växlade lokala nät, länkprotokoll. Nätverk i datacenter. Detektering av överföringsfel.
-Lärandemål
-Efter godkänd kurs ska studenten kunna
+**TASK4: Concurrent HTTPAsk Server**
 
-beskriva och förklara grundläggande termer och begrepp inom nätverk och kommunikation
-analysera kommunikationsscenarier och tillämpningskrav samt förklara vilka metoder och algoritmer som är lämpliga för att erbjuda en önskad kommunikationstjänst
-förklara, modellera och analysera beteendet hos nätverk som använder olika metoder för felhantering och flödeskontroll
-förklara olika metoder för trängselkontroll och hur de reagerar på olika händelser och förhållanden i nätverket
-förklara funktionerna hos protokollen i de olika lagren i Internet-modellen och hur de olika lagren interagerar med varandra
-förklara och jämföra grundläggande algoritmer och mekanismer för vägval samt hur de reagerar på olika händelser och förhållanden i nätverket
-använda socket-programmering för att implementera enkla tillämpningar enligt klient/servermodellen
-designa, implementera och analysera beteendet hos enklare Internetbaserade tillämpningar och deras protokoll
-designa och konfigurera enklare nätverk med grundläggande tjänster som DHCP och DNS
-förklara olika funktioner och begrepp rörande utrustning för kommunikation och nätverk
-beräkna eller uppskatta prestanda i termer av fördröjning, genomströmning och utnyttjandegrad i sammankopplade nätverk
-i syfte att
-
-förstå och utnyttja datorkommunikation och datornätverk på ett tillförlitligt och effektivt sätt i system och tillämpningar
-lägga grunden för fortsatta studier inom området
+Task 4 requires transforming the HTTPAsk server from Task 3 into a concurrent server capable of handling multiple clients simultaneously. Unlike Task 3, where clients were served one at a time, ConcHTTPAsk serves each client immediately upon contact without waiting for previous clients to finish. You'll utilize Java threading to achieve this concurrency, creating a new thread for each client. Your implementation involves defining a class that implements the Runnable interface, creating and starting threads to handle client requests concurrently. The submission format remains the same as previous tasks, with evaluation focusing on verifying concurrent functionality and conducting tests to ensure correct handling of multiple client connections.
